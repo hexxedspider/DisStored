@@ -1,0 +1,16 @@
+**/__pycache__
+**/.vscode
+**/dist
+.env
+
+# build executable, currently doesnt work as a standalone but ill be making it so it can soon, trust
+# if anything, ill bundle it as a exe installer and pull the repo for updates
+be.bat
+build.py
+
+index_old.txt
+
+files.json
+pyrightconfig.json
+
+test_chunking.py
