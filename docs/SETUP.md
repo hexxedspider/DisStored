@@ -6,57 +6,48 @@
 1. **Install Python** (3.7 or higher)
 2. **Install dependencies**: `pip install -r requirements.txt`
 3. **Set Discord webhook**: `set DISCORD_WEBHOOK_URL=your_webhook_url`
+3.1 **Set Discord webhook - env**: open .env and set your webhook there
 4. **Run**: `python app.py` or double-click `run.bat`
 
-### Option 2: Build Executable
-1. **Install dependencies**: `pip install -r requirements.txt`
-2. **Build executable**: Double-click `build_executable.bat`
-3. **Run**: Double-click `launch.bat` or run `dist/DisStored.exe`
+### Option 2: Eventually
 
-## 🔧 Discord Webhook Setup
+// make it run from a single executable, or as an installer that adds shortcuts to run it.
+
+## Discord Webhook Setup
 
 1. **Go to Discord** → Your server → Channel settings
 2. **Integrations** → **Webhooks** → **New Webhook**
 3. **Copy the webhook URL**
 4. **Set environment variable**:
-   ```bash
+   ```
    set DISCORD_WEBHOOK_URL=https://discord.com/api/webhooks/YOUR_ID/YOUR_TOKEN
    ```
 
-## 📁 File Structure
+## File Structure
 ```
 DisStored/
-├── app.py                 # Main application
-├── config.py              # Configuration
-├── build.py               # Build script
+├────templates/index.html # Web UI
+├────docs/**              # The documents for other reasons not in README.md
+├── .env                  # Your webhook will be set here
+├── .gitignore            # Things that don't get pushed to GitHub
+├── .gitattributes        > not really important for you
+├── app.py                # Main application
+├── config.py             # Configuration
+├── files.json            # Data for the files you uploaded
 ├── run.bat               # Run from source
-├── launch.bat            # Launcher with env support
-├── build_executable.bat  # Build executable
 ├── requirements.txt      # Dependencies
-├── templates/index.html  # Web interface
-└── README.md            # Full documentation
+└── README.md             # Full documentation
 ```
 
-## 🌐 Usage
-1. **Start the application**
-2. **Browser opens automatically** to `http://127.0.0.1:5000`
-3. **Drag & drop files** or click to upload
-4. **Create folders** to organize files
-5. **Download or delete** files as needed
+## Usage
+1. **Start the application**: whether by running the app.py file directly or using run.bat
+2. **Browser opens automatically**: to `http://10.0.0.7:26435`, but you can also go to `127.0.0.1:26435`
+3. **Drag & drop files**: or start an upload by clicking the upload area
+4. **Create folders**: completely optional, only for organization
+5. **Download or delete**: from there you can delete files from your access or download them- NOTE: does not remove the upload from Discord, only removes for you!
 
-## ⚠️ Important Notes
-- **Max file size**: 9.99MB (Discord limit)
-- **Files stored locally** in `files.json`
-- **No authentication** (single-user)
-- **Port 5000** must be available
-
-## 🆘 Troubleshooting
-- **"Webhook not set"**: Set `DISCORD_WEBHOOK_URL` environment variable
-- **"Port in use"**: Close other apps using port 5000
-- **"File too large"**: Split files or use alternative storage
-- **Executable won't run**: Check Windows Defender/firewall
-
-## 📞 Support
-- Check console output for errors
-- Verify webhook URL is correct
-- Ensure proper file permissions
+## Important Notes
+- **Max file size**: there is no limit, but there's a certain point where waiting will take way longer than is really necessary, and other alternatives are better
+- **Files stored locally**: stored in `files.json`, not the file themselves, but the data that makes that file even technically exist to DisStored
+- **No authentication**: anyone on the same wifi can upload freely and download all files each indiviual uploads, or a singular person, without needing to do tests- planning on making it so it keeps your IP in memory so you can have other people access, but will need to input a password that you set in order to access, otherwise they'll be met with a `ERROR 100: NO ACCESS`
+- **Port Number**: it has to be available, 26435, 5000, 2500, etc, whatever port has to be free

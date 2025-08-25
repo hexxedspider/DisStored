@@ -303,7 +303,7 @@ def create_folder():
     return jsonify({'success': True, 'folder': folder_name})
 
 def open_browser():
-    webbrowser.open('http://10.0.0.187:26435')
+    webbrowser.open('http://10.0.0.7:26435')
 
 if __name__ == '__main__':
     # Print configuration

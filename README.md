@@ -77,5 +77,6 @@ Contributions are welcome! Please feel free to submit pull requests or open issu
 
 ## Extra
 
-SETUP.md
-TROUBLESHOOTING.md
+[SETUP.md](https://github.com/hexxedspider/DisStored/blob/main/docs/SETUP.md)
+
+[TROUBLESHOOTING.md](https://github.com/hexxedspider/DisStored/blob/main/docs/TROUBLESHOOTING.md)

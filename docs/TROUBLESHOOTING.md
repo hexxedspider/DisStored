@@ -2,37 +2,7 @@
 
 ## Common Issues and Solutions
 
-### 1. "ordinal not found" Error
-
-**Problem**: The executable shows "ordinal not found" when trying to run.
-
-**Solutions**:
-- **Rebuild the executable**: Run `python build.py` to create a fresh build
-- **Clean build directories**: Delete `dist/` and `build/` folders before rebuilding
-- **Update PyInstaller**: `pip install --upgrade pyinstaller`
-- **Check Python version**: Ensure you're using Python 3.7+ and PyInstaller 6.0+
-
-### 2. Executable Won't Start
-
-**Problem**: Double-clicking the .exe file does nothing.
-
-**Solutions**:
-- **Run from command line**: Open cmd/PowerShell and run `.\dist\DisStored.exe`
-- **Check Windows Defender**: Add the executable to exclusions
-- **Run as Administrator**: Right-click → "Run as administrator"
-- **Check dependencies**: Ensure all required DLLs are present
-
-### 3. "File too large" Error
-
-**Problem**: Still getting 9.99MB limit error.
-
-**Solutions**:
-- **Restart the application**: Close and reopen DisStored
-- **Clear browser cache**: Press Ctrl+F5 in your browser
-- **Check configuration**: Verify the config shows 100MB limit
-- **Update executable**: Rebuild with latest code
-
-### 4. Discord Webhook Issues
+### 1. Discord Webhook Issues
 
 **Problem**: Files not uploading to Discord.
 
@@ -41,61 +11,64 @@
 - **Test webhook**: Try uploading a small file first
 - **Check Discord permissions**: Ensure webhook has upload permissions
 - **Environment variable**: Set `DISCORD_WEBHOOK_URL` correctly
+- **.env file**: Verify your webhook is properly in the .env file
 
-### 5. Port Already in Use
+### 2. Port Already in Use
 
 **Problem**: "Port 5000 already in use" error.
 
 **Solutions**:
 - **Close other applications**: Check what's using port 5000
 - **Change port**: Edit `config.py` and change the PORT value
-- **Restart computer**: Sometimes needed to free up ports
+- **Restart computer**: Sometimes needed to free up ports- last resort
 
-### 6. Import Errors
+### 3. Import Errors
 
 **Problem**: "No module named 'flask'" or similar errors.
 
 **Solutions**:
 - **Install dependencies**: `pip install -r requirements.txt`
-- **Check Python environment**: Ensure you're in the right virtual environment
-- **Rebuild executable**: Run `python build.py` again
+- **Check Python environment**: Ensure you're in the right virtual environment- if any
+- **Install dependencies manually**: `pip install` for each `import {module}`
 
-### 7. File Upload Fails
+### 4. File Upload Fails
 
 **Problem**: Files won't upload or show errors.
 
 **Solutions**:
-- **Check file size**: Ensure it's under 100MB
+- **Check file size**: Ensure the file isn't too large- shouldn't be an issue, but still a valid concern
 - **Check file permissions**: Ensure you can read the file
 - **Try different file**: Test with a small text file first
 - **Check console output**: Look for error messages
+- **Ensure DisStored is running**: Make sure it's still running and not closed accidentally
+- **Verify the file is intact**: Make sure the file isn't corrupt, moved, deleted, renamed, etc
 
-### 8. Browser Won't Open
+### 5. Browser Won't Open
 
 **Problem**: Web interface doesn't open automatically.
 
 **Solutions**:
-- **Manual navigation**: Go to `http://127.0.0.1:5000` in your browser
+- **Manual navigation**: Go to `http://127.0.0.1:5000` or `10.0.0.7:26435` in your browser- test on a different device if unsure too (the device has to be connected to the same wifi in order to access DisStored)
 - **Check firewall**: Allow the application through Windows Firewall
-- **Try different browser**: Use Chrome, Firefox, or Edge
+- **Try different browser**: Use Chrome, Firefox, Brave, Vivaldi, DuckDuckGo, etc
 
 ## Quick Fixes
 
 ### For Most Issues:
-1. **Stop the application** (Ctrl+C in terminal)
-2. **Delete build files**: `Remove-Item -Recurse -Force dist, build`
-3. **Rebuild**: `python build.py`
-4. **Run fresh**: `.\dist\DisStored.exe`
+1. **Stop the application**: CTRL+C in terminal, closing the Python window, or using task manager to close Python
+2. **Re-run the application**: could potentially solve issues with it not starting right on first launch
 
 ### For Webhook Issues:
-1. **Create .env file** with your webhook URL
-2. **Test webhook** with a small file first
-3. **Check Discord** for uploaded files
+1. **Create .env file**: with your webhook URL
+2. **Test webhook**: start with a small file first
+3. **Check Discord**: for uploaded files/chunks
+4. **Copy webhook again**: incase you didn't copy every single letter, or it bugged
 
 ### For Large Files:
-1. **Verify chunking** is working in console output
-2. **Check Discord** for chunk files
-3. **Test download** to ensure reconstruction works
+1. **Verify chunking**: working properly based on console output
+2. **Check Discord**: for chunk files being sent
+3. **Test download**: to ensure reconstruction works fully
+4. **Verifiy file is stored safely**: make sure the file isn't being modified in any way
 
 ## Getting Help
 
@@ -110,6 +83,5 @@ If you're still having issues:
 
 - **Windows 10/11** (64-bit)
 - **Python 3.7+** (for building)
-- **4GB RAM** minimum
-- **100MB free space** for the executable
+- **1 GB RAM** (2 GB or more recommended- could potentially run on less but you would either be suffering waiting or not able to do anything else while running)
 - **Internet connection** for Discord uploads
