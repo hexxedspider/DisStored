@@ -40,7 +40,10 @@ A (eventually) standalone executable application that uses Discord webhooks for 
 
    6: Upload files by dragging and dropping them into the upload area or clicking the upload area.
 
-   7: If the uploaded files go above the 10mb standard Discord limit, the file will be broken down into pieces and sent into to the same channel, but still remain intact. You will then be able to download the file by clicking the "Download" button.
+   7: If the uploaded files go above the 10mb standard Discord limit,
+   the file will be broken down into pieces and sent into to the same
+   channel, but still remain intact. You will then be able to download
+   the file by clicking the "Download" button.
 ```
 
 ## How It Works
