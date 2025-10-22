@@ -10,8 +10,6 @@ A (eventually) standalone executable application that uses Discord webhooks for 
 - **Minimal Local Usage** - Stores the files on Discord's Servers, the only storage you'll be using is the repo, and the files.json that will be *the* largest file.
 - **Secure** - I will never be able to gain access to the files hosted, nor will anyone else that isn't on your LAN (besides discord themselves but yk, unless they repack the chunks, it wouldn't matter).
 
-## Quick Start
-
 ## 1. Download and Run
 
 1. Clone or download the repo.
